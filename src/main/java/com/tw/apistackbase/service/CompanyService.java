@@ -1,6 +1,7 @@
 package com.tw.apistackbase.service;
 
 import com.tw.apistackbase.entity.Company;
+import com.tw.apistackbase.entity.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,5 +26,10 @@ public class CompanyService {
             }
         }
         return null;
+    }
+
+    public List<Employee> getEmployeesByCompany(Integer companyID){
+        Company company=geCompanyByID(companyID);
+        return company.getEmployees();
     }
 }

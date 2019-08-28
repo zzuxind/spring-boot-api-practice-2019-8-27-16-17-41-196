@@ -28,6 +28,11 @@ public class CompanyController {
         }
     }
 
+    @GetMapping("{id}/employees")
+    public ResponseEntity getEmployeesByCompany(@PathVariable Integer id){
+        return ResponseEntity.ok(companyService.getEmployeesByCompany(id));
+    }
+
 
 
 

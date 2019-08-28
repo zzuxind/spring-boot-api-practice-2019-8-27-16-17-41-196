@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -38,5 +39,13 @@ public class CompanyControllerTest {
         mockMvc.perform(get("/companies?page=2&pageSize=1"))
                 .andDo(print())
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void should_return_200_when_get_a_company_employees()throws Exception{
+        mockMvc.perform(get("/companies/1/employees"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().string("[{\"employeeID\":1,\"gender\":\"femal\"},{\"employeeID\":2,\"gender\":\"male\"}]"));
     }
 }
