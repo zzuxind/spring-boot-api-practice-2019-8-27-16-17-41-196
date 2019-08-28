@@ -32,4 +32,11 @@ public class CompanyControllerTest {
                 .andDo(print())
                 .andExpect(status().isNoContent());
     }
+
+    @Test
+    public void should_return_200_when_get_companys_by_limit()throws Exception{
+        mockMvc.perform(get("/companies?page=2&pageSize=1"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
 }

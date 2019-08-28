@@ -9,8 +9,13 @@ import java.util.List;
 public class CompanyService {
     static List<Company> companyList=Company.companyData();
 
-    public List<Company> getCompanies() {
-        return companyList;
+    public List<Company> getCompanies(Integer page,Integer pageSize) {
+        if(page!=null && pageSize!=null){
+            int start=pageSize*(page-1);
+            List<Company> pageCompaniesList=companyList.subList(start,start+pageSize);
+            return pageCompaniesList;
+        }
+        return  companyList;
     }
 
     public Company geCompanyByID(Integer id){
