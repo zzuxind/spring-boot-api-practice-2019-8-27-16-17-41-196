@@ -10,8 +10,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -48,4 +48,12 @@ public class CompanyControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string("[{\"employeeID\":1,\"gender\":\"femal\"},{\"employeeID\":2,\"gender\":\"male\"}]"));
     }
+
+//    @Test
+//    public void should_return_201_when_add_a_company()throws Exception{
+//        List<Employee> employeeList=new ArrayList(){{add(new Employee(003,"female"));}};
+//        mockMvc.perform(post("/companies").content("{\"companyID\":4,\"employees\":[{003,\"female\"}]}").contentType("application/octet-stream;charset=UTF-8"))
+//                .andDo(print())
+//                .andExpect(status().isCreated());
+//    }
 }

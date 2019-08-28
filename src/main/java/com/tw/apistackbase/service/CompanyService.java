@@ -19,7 +19,7 @@ public class CompanyService {
         return  companyList;
     }
 
-    public Company geCompanyByID(Integer id){
+    public Company getCompanyByID(Integer id){
         for (Company company:companyList){
             if(company.getCompanyID() == id){
                 return company;
@@ -29,7 +29,17 @@ public class CompanyService {
     }
 
     public List<Employee> getEmployeesByCompany(Integer companyID){
-        Company company=geCompanyByID(companyID);
+        Company company=getCompanyByID(companyID);
         return company.getEmployees();
+    }
+
+    public void addCompany(Company company) {
+        companyList.add(company);
+    }
+
+    public void updateCompany(Company company) {
+        Company gettedCompany=getCompanyByID(company.getCompanyID());
+        gettedCompany.setEmployees(company.getEmployees());
+
     }
 }

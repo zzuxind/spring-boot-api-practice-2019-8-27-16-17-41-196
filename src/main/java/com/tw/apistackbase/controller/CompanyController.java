@@ -20,7 +20,7 @@ public class CompanyController {
 
     @GetMapping("{id}")
     public ResponseEntity getCompanyByID(@PathVariable Integer id){
-        Company company = companyService.geCompanyByID(id);
+        Company company = companyService.getCompanyByID(id);
         if(company==null){
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }else{
@@ -33,7 +33,17 @@ public class CompanyController {
         return ResponseEntity.ok(companyService.getEmployeesByCompany(id));
     }
 
+    @PostMapping
+    public ResponseEntity addCompany(@RequestBody Company company){
+        companyService.addCompany(company);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
 
+    @PutMapping
+    public ResponseEntity updateCompany(@RequestBody Company company){
+        companyService.updateCompany(company);
+        return ResponseEntity.ok().build();
+    }
 
 
 }
