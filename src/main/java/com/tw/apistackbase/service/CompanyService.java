@@ -42,4 +42,8 @@ public class CompanyService {
         gettedCompany.setEmployees(company.getEmployees());
 
     }
+
+    public void deleteCompany(Integer id) {
+        companyList.remove(getCompanyByID(id));
+    }
 }
