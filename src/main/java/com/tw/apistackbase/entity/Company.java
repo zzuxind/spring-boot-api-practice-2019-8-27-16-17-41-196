@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Company {
-    private int companyID;
+    private Integer companyID;
     private List<Employee> employees;
 
-    public int getCompanyID() {
+    public Integer getCompanyID() {
         return companyID;
     }
 
-    public void setCompanyID(int companyID) {
+    public void setCompanyID(Integer companyID) {
         this.companyID = companyID;
     }
 

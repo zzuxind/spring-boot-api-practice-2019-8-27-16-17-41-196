@@ -25,4 +25,11 @@ public class CompanyControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk());
     }
+
+    @Test
+    public void should_return_204_when_company_not_exist()throws Exception{
+        mockMvc.perform(get("/companies/3"))
+                .andDo(print())
+                .andExpect(status().isNoContent());
+    }
 }
